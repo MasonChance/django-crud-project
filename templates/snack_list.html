@@ -2,8 +2,16 @@
 
 
 {% block content %}
+<h1>SnackaBoard</h1>
+<a href="{% url 'snack_create' %}">add a snack</a>
 
-<h1>List View coming soon</h1>
+<ul>
+{% for munchie in object_list %} 
+    {%comment%} object_list is default way to access the table based on the model {%endcomment%} 
+    <li><a href="{% url 'snack_detail' munchie.pk %}">{{munchie.title}}</a></li>
+    {%comment%} calling url and the primary key property of the viewName {%endcomment%}
+{%endfor%}
+</ul>
 
 {% endblock content %}
 

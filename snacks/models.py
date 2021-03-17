@@ -6,5 +6,5 @@ class Snack(models.Model):
     description = models.TextField(default='')
     purchaser = models.ForeignKey(get_user_model(), on_delete=models.CASCADE)
 
-    def __str__():
-        return f'Found {self.name} on {self.purchaser}\'s list becuase {self.description}'
+    def __str__(self):
+        return str(f'Found {self.title} on {self.purchaser}\'s list because {self.description}')
