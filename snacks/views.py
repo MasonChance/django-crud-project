@@ -7,7 +7,7 @@ from django.urls import reverse_lazy
 #R--> ListView, DetailView
 #U--> UpdateView
 #D--> DeleteView
-# Create your views here.
+# Create your views here.  
 
 class SnackListView(ListView):
     template_name = 'snack_list.html'
@@ -25,6 +25,7 @@ class SnackCreateView(CreateView):
     # because this view deals with forms it requires list of field names
     # for reference. fields are based on properties of the Model
     # the form is based on. 
+    success_url = reverse_lazy('snack_list')
     fields = ['title', 'description', 'purchaser']
 
 class SnackUpdateView(UpdateView):
@@ -35,7 +36,7 @@ class SnackUpdateView(UpdateView):
 class SnackDeleteView(DeleteView):
     template_name = 'snack_delete.html'
     model = Snack
-    success_url = reverse_lazy('snack_list.html')
+    success_url = reverse_lazy('snack_list')
     # reverse_lazy allows re-direct to the indicated view by view-name
 
 
