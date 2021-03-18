@@ -1,8 +1,8 @@
 
-from django.urls import path, include
-from .views import SnackDeleteView, SnackCreateView, SnackUpdateView, SnackListView, SnackDetailView, 
+from django.urls import path
+from .views import SnackDeleteView, SnackCreateView, SnackUpdateView, SnackListView, SnackDetailView
 
-urlpaterns = [
+urlpatterns = [
     path('', SnackListView.as_view(), name='snack_list'),  # Home Route
     path('<int:pk>/', SnackDetailView.as_view(), name='snack_detail'), # Detail is a single Item from the Model table
     # thus the path must indicate the value of the primary key
